@@ -182,6 +182,10 @@ figure {
                             opacity: 1;
                             text-indent: 0px;
                         }
+
+                        &.off {
+                            opacity: 0;
+                        }
                     }
                 }
 
@@ -233,12 +237,110 @@ figure {
             display: flex;
             justify-content: center;
             align-items: center;
-            font: 12px/1 'arial';
+            font: 12px/1 "Arial";
             color: #fff;
 
             &:hover {
                 background-color: #555;
             }
+        }
+
+        &.off {
+            right: 5vw;
+            opacity: 0;
+        }
+    }
+
+    .pop {
+        width: 50vw;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        background-color: #0000000D;
+        border-right: 1px solid #00000005;
+        backdrop-filter: blur(10px);
+        padding: 22vh 5vw 10vh 6vw;
+        transition: 0.5s;
+
+        h2 {
+            font: 12vw/1 "Anton";
+            color: #fff;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: 1s 0.3s;
+        }
+
+        p {
+            font: 22px/1.2 "Arial";
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: 0.5s 0.8s;
+        }
+
+        .close {
+            width: 200px;
+            height: 40px;
+            border: 2px solid #fff;
+            font: bold 14px/1 "Arial";
+            color: #fff;
+            cursor: pointer;
+            display: flex; // contains block
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.5s;
+
+            &:hover {
+                background-color: #fff;
+                color: #777;
+            }
+        }
+
+        &.on {
+            left: 0;
+
+            h2,
+            p,
+            .close {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1199px) {
+    figure {
+        .banner {
+            ul {
+                li {
+                    &:nth-of-type(4) {
+                        transform: translateX(0px) scale(0.7);
+
+                        h2 {
+                            top: -20vh;
+                            font-size: 37vw;
+                        }
+
+                        a {
+                            width: 100%;
+                            bottom: -25%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btns {
+            width: 100%;
+            bottom: 6vh;
+            justify-content: center;
+            right: 0vw;
         }
     }
 }
